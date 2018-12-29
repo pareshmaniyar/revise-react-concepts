@@ -38,6 +38,7 @@ class App extends Component {
         <BrowserRouter>
           <Switch>
             <Route path='/' exact render={ (props) => <Pages.Home {...props} contacts={this.state.contacts}/> } />
+            <Route path='/context' exact component={Pages.Context}/>
           </Switch>
         </BrowserRouter>
       </div>
