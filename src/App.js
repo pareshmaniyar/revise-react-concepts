@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {Route, Switch, BrowserRouter} from 'react-router-dom';
+import {Route, Switch, BrowserRouter, Redirect} from 'react-router-dom';
 import Pages from './pages';
 
 class App extends Component {
@@ -37,13 +37,14 @@ class App extends Component {
         </header>
         <BrowserRouter>
           <Switch>
-            <Route path='/' exact render={ (props) => <Pages.Home {...props} contacts={this.state.contacts}/> } />
+            <Route path='/' exact render={ (props) => <Redirect to="/login"/>} />
             <Route path='/context' exact component={Pages.Context}/>
+            <Route path='/login' exact component={Pages.Login}/>
           </Switch>
         </BrowserRouter>
       </div>
     );
   }
 }
-
+//<Pages.Home {...props} contacts={this.state.contacts}/>
 export default App;
